@@ -12,6 +12,7 @@ let food = {
     j: Math.floor(Math.random() * 20)
 };
 let score = 0;
+let topScore = 0;
 let move = { i: 0, j: 0 };
 let direction = "RIGHT";
 let pause = false;
@@ -80,6 +81,7 @@ var draw = () => {
         }
         if (head.i == food.i && head.j == food.j) {
             score++;
+            topScore = (score>topScore)?score:topScore;
             food = {
                 i: Math.floor(Math.random() * 20),
                 j: Math.floor(Math.random() * 20)
@@ -111,6 +113,11 @@ var draw = () => {
     ctx.textBaseline = 'top';
     ctx.textAlign = 'left';
     ctx.fillText(`Score: ${score}`, 20, 440);
+    ctx.fillStyle = 'white';
+    ctx.font = "23px 'Press Start 2P'";
+    ctx.textBaseline = 'top';
+    ctx.textAlign = 'left';
+    ctx.fillText(`Top Score: ${topScore}`, 20, 480);
 
 
     if (pause) {
