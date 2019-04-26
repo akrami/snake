@@ -8,7 +8,7 @@ var bundlejs = () => {
     entries: 'app-client.js',
     cache: {},
     packageCache: {},
-    fullPaths: true,
+    fullPaths: false,
     debug: false
   })
   .bundle()
